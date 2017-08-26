@@ -7,7 +7,7 @@ module.exports = (app) => {
         new Recipe(req.body)
             .save((err, result) => {
                 if (err) { res.send({ error: err.message }); }
-                res.send({ success: result });
+                res.json(result);
             });
     });
 
@@ -16,7 +16,7 @@ module.exports = (app) => {
 
         recipes.exec((err, result) => {
             if (err) { res.send({ error: err.message }); }
-            res.send({ success: result });
+            res.json(result);
         })
     });
 
@@ -28,7 +28,7 @@ module.exports = (app) => {
                 if (err) { res.send(err.message); }
                 doc.remove((err) => {
                     if (err) { res.send({ error: err.message }); }
-                    res.send({ success: 'document deleted.'});
+                    res.send({ success: 'recipe deleted'});
                 })
             });
     });
@@ -39,7 +39,7 @@ module.exports = (app) => {
             req.body,
             (err) => {
                 if (err) { res.send({ error: err.message }); }
-                res.send({ success: 'document updated' });
+                res.send({ success: 'recipe updated'});
             }
         )
     });
