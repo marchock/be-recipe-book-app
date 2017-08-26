@@ -1,4 +1,6 @@
 node_modules
-config/
 .DS_Store
 .idea/
+
+# Local testing
+config/dev.js
