@@ -19,6 +19,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Routes
+require('./routes/indexRoute')(app);
 require('./routes/recipeRoutes')(app);
 
 // Port number
