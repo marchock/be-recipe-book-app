@@ -1,0 +1,29 @@
+{
+  "name": "be-recipe-book-app",
+  "version": "1.0.0",
+  "description": "## Tech Stack Node - Express server - Mongo DB - Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "postinstall": "./node_modules/.bin/webpack -p --define process.env.NODE_ENV='\"production\"'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marchock/be-recipe-book-app.git"
+  },
+  "author": "Ryan Marchock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marchock/be-recipe-book-app/issues"
+  },
+  "homepage": "https://github.com/marchock/be-recipe-book-app#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.8",
+    "nodemon": "^1.11.0"
+  }
+}
