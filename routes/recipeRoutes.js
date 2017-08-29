@@ -3,11 +3,10 @@ const Recipe = mongoose.model('recipe');
 
 module.exports = (app) => {
     app.post('/api/add-recipe', (req, res) => {
-
         new Recipe(req.body)
             .save((err, result) => {
                 if (err) { res.send({ error: err.message }); }
-                res.json(result);
+                res.status(200).json(result);
             });
     });
 
@@ -16,19 +15,18 @@ module.exports = (app) => {
 
         recipes.exec((err, result) => {
             if (err) { res.send({ error: err.message }); }
-            res.json(result);
+            res.status(200).json(result);
         })
     });
 
     app.post('/api/delete-recipe', (req, res) => {
-
         Recipe.findById(
             req.body._id, // recipe ID
             (err, doc) => {
                 if (err) { res.send(err.message); }
                 doc.remove((err) => {
                     if (err) { res.send({ error: err.message }); }
-                    res.send({ success: 'recipe deleted'});
+                    res.status(200).send({ success: 'recipe deleted'});
                 })
             });
     });
@@ -39,7 +37,7 @@ module.exports = (app) => {
             req.body,
             (err) => {
                 if (err) { res.send({ error: err.message }); }
-                res.send({ success: 'recipe updated'});
+                res.status(200).send({ success: 'recipe updated'});
             }
         )
     });
